@@ -1,5 +1,5 @@
-@extends('layouts/main')
-@section('contenido')
+@extends('layouts.app')
+@section('content')
   <div class="container cuerpo">
 
       <img src="images/faq.jpg" class="col-12 my-3" alt="">

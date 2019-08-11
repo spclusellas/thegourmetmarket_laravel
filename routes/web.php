@@ -15,14 +15,16 @@
 //     return view('welcome');
 // });
 
-Route::get('/', 'PagesController@main')->name('main');
+Route::get('/', 'PagesController@main')->name('home');
 
 Route::get('/faqs', 'PagesController@faqs')->name('faqs');
 
 Route::get('/', 'HomeController@index');
 Route::get('/faq', 'FAQController@index');
-Route::get('/signin', 'SignInController@index');
-Route::get('/register', 'RegisterController@index');
+
+// Estas dor rutas se crearon antes de hacer el auth
+// Route::get('/signin', 'SignInController@index');
+// Route::get('/register', 'RegisterController@index');
 
 Auth::routes();
 
@@ -32,10 +34,7 @@ Route::get('/home', 'HomeController@index')->name('home');
 
 
 
-//Aquí direccio al usuario cuando da click en las opciones de damas, Caballeros ó Niños.
-Route::get('/men', 'ProductController@indexmen')->name('men');
-Route::get('/women', 'ProductController@indexwomen')->name('women');
-Route::get('/kids', 'ProductController@indexkids')->name('kids');
+
 //Aquí es donde muestros los productos
 Route::get('/show/{id}', 'ProductController@show')->name('front.product.show');
 //Ruta creada para buscar los productos

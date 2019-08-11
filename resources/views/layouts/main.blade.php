@@ -1,4 +1,5 @@
 @include('partials.header')
+@include('layouts.app')
 @include('partials.navbar')
 @yield('content')
 @include('partials.footer')

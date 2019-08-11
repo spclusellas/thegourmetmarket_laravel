@@ -308,7 +308,7 @@ LEVEL 4. SETTINGS
 
 /**      FOOTER        **/
 footer{
-  background-color: #202428;
+  /* background-color: #202428; */
   color: white;
   display: flex;
   flex-wrap: wrap;

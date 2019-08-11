@@ -1,5 +1,5 @@
 @extends('layouts.app')
-@section('assets')
+{{-- @section('assets')
     <link rel="stylesheet" href="{{asset('css/products.css')}}">
     <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
     <style>
@@ -9,7 +9,7 @@
         .delete, .delete:hover{color:red}
 
     </style>
-@endsection
+@endsection --}}
 @section('content')
 <div id='product-container' class="container-fluid p-0">
     <section class="container pt-3 pb-3">
@@ -17,17 +17,11 @@
             @csrf
             <article class="row">
                 <section class="col-md-3 col-sm-6">
-                    <article class="product-grid mb-4 mt-4">
-                        <section class="product-image">
-                            <img class="pic-1" src="{{asset('storage/products/default.png')}}">
-                            <img class="pic-2" src="{{asset('storage/products/default2.png')}}">
-                        </section>
-                    </article>
                     <article class='container-fluid p-0 mb-4'>
-                        <label for="imageLoc">Imagen 1</label>
+                        <label for="imageLoc">Selecciona una imagen</label>
                         <input type="file" value="imageLoc" class='form-control-file' name="imageLoc" id="imageLoc">
                         <hr>
-                        <label for="imageLoc2">Imagen 2</label>
+                        <label for="imageLoc2">Selecciona otra imagen</label>
                         <input type="file" value="imageLoc2" class='form-control-file' name="imageLoc2" id="imageLoc2">
                     </article>
                 </section>
@@ -40,15 +34,7 @@
                             <dt>Descripción</dt>
                             <dd><input type="text" class='form-control' name="description" id="description" value=""></dd>
                         </dl>
-                        <dl class="param param-feature">
-                            <dt>Género</dt>
-                            <dd>
-                                <select name="genre_id" id="genre_id">
-                                    @foreach ($genres as $genre)
-                                        <option value="{{$genre->id}}">{{$genre->name}}</option>
-                                    @endforeach
-                                </select>
-                            </dd>
+
                         <dl class="param param-feature">
                             <dt>Categoría</dt>
                             <dd>
@@ -59,16 +45,7 @@
                                 </select>
                             </dd>
                         </dl>  <!-- item-property-hor .// -->
-                        <dl class="param param-feature">
-                            <dt>Talle</dt>
-                            <dd>
-                                <select name="size_id" id="size_id">
-                                    @foreach ($sizes as $size)
-                                        <option value="{{$size->id}}">{{$size->size}}</option>
-                                    @endforeach
-                                </select>
-                            </dd>
-                        </dl>  <!-- item-property-hor -->
+                        <!-- item-property-hor -->
                         <dl class="param param-feature">
                             <dt>Precio $</dt>
                             <dd><input type="number" class='form-control' name="price" id="price" value=""></dd>
@@ -98,4 +75,4 @@
     @endif
     </section>
 </div>
-@endsection  
+@endsection

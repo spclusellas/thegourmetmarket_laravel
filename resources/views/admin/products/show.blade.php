@@ -1,5 +1,5 @@
 @extends('layouts.app')
-@section('assets')
+{{-- @section('assets')
     <link rel="stylesheet" href="{{asset('css/products.css')}}">
     <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
@@ -35,7 +35,7 @@
     }
     });
 </script>
-@endsection
+@endsection --}}
 @section('content')
 <div id='product-container' class="container-fluid p-0">
     <section class="container pt-3 pb-3">
@@ -48,13 +48,13 @@
                     </div>
                 </article>
                 <article class='container-fluid p-0 text-center'>
-                    <a href="{{route('products.edit', ['id' => $product->id])}}" class="btn btn-primary btn-sm btn-block"><i class="text-white material-icons">&#xE254;</i></a>
+                    <a href="{{route('products.edit', ['id' => $product->id])}}" class="btn btn-primary btn-sm btn-block"><i class="fas fa-edit" class="material-icons" data-toggle="tooltip" title="Edit"></i></a>
                     <form id='form-delete' class='form-delete' action="{{route('products.destroy',['id' => $product->id])}}" method="post">
                         @method('delete')
                         @csrf
-                        <a href='#' id='delete-link' class="btn btn-danger btn-sm btn-block" data-toggle="tooltip" title="Delete"><i class="text-white material-icons">&#xE872;</i></a>
+                        <a href='#' id='delete-link' class="btn btn-danger btn-sm btn-block" data-toggle="tooltip" title="Delete"><i class="fas fa-trash-alt" data-toggle="tooltip" title="Delete"></i></a>
                     </form>
-                    <a href="{{route('products.index')}}" class="edit btn btn-info btn-sm btn-block"><i class="text-white material-icons">arrow_back</i></a>
+                    <a href="{{route('products.index')}}" class="edit btn btn-info btn-sm btn-block"><i class="fas fa-arrow-alt-circle-left"></i></a>
                 </article>
             </section>
             <section class="col-md-9 col-sm-6">
@@ -91,4 +91,4 @@
         </article>
     </section>
 </div>
-@endsection  
+@endsection

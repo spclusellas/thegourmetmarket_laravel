@@ -1,14 +1,4 @@
 @extends('layouts.app')
-@section('assets')
-    <link rel="stylesheet" href="{{asset('css/products.css')}}">
-    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
-    <style>
-        .pagination a {color:black}
-        .product-grid{padding:0 0 0px !important;}
-        .edit, .edit:hover{color:blue}
-        .delete, .delete:hover{color:red}
-    </style>
-@endsection
 @section('content')
 <div id='product-container' class="container-fluid p-0">
     <section class="container pt-3 pb-3">
@@ -24,7 +14,7 @@
                         </section>
                     </article>
                     <article class='container-fluid p-0 mb-4'>
-                        <label for="imageLoc">Imagen 1</label>
+                        <label for="imageLoc">Imagen </label>
                         <input type="file" value="imageLoc" class='form-control-file' name="imageLoc" id="imageLoc">
                         <hr>
                         <label for="imageLoc2">Imagen 2</label>
@@ -40,18 +30,6 @@
                             <dd><input type="text" class='form-control' name="description" id="description" value="{{$product->description}}"></dd>
                         </dl>
                         <dl class="param param-feature">
-                            <dt>Género</dt>
-                            <dd>
-                                <select name="genre_id" id="genre_id">
-                                    <option value="{{$product->genre['id']}}" selected>{{$product->genre['name']}}</option>
-                                    @foreach ($genres as $genre)
-                                        @if ($genre->name != $product->genre['name'])
-                                            <option value="{{$genre->id}}">{{$genre->name}}</option>
-                                        @endif
-                                    @endforeach
-                                </select>
-                            </dd>
-                        <dl class="param param-feature">
                             <dt>Categoría</dt>
                             <dd>
                                 <select name="category_id" id="category_id">
@@ -64,19 +42,6 @@
                                 </select>
                             </dd>
                         </dl>  <!-- item-property-hor .// -->
-                        <dl class="param param-feature">
-                            <dt>Talle</dt>
-                            <dd>
-                                <select name="size_id" id="size_id">
-                                    <option value="{{$product->size['id']}}" selected>{{$product->size['size']}}</option>
-                                    @foreach ($sizes as $size)
-                                        @if ($size->size != $product->size['size'])
-                                            <option value="{{$size->id}}">{{$size->size}}</option>
-                                        @endif
-                                    @endforeach
-                                </select>
-                            </dd>
-                        </dl>  <!-- item-property-hor -->
                         <dl class="param param-feature">
                             <dt>Precio $</dt>
                             <dd><input type="number" class='form-control' name="price" id="price" value="{{$product->price}}"></dd>
@@ -106,4 +71,4 @@
     @endif
     </section>
 </div>
-@endsection  
+@endsection

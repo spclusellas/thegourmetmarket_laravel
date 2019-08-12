@@ -49,6 +49,7 @@
                 </article>
                 <article class='container-fluid p-0 text-center'>
                     <a href="{{route('products.edit', ['id' => $product->id])}}" class="btn btn-primary btn-sm btn-block"><i class="fas fa-edit" class="material-icons" data-toggle="tooltip" title="Edit"></i></a>
+                    {{-- <a href="{{route('users.destroy',['id' => $product->id])}}" id='delete-link' class="btn btn-danger btn-sm btn-block" data-toggle="tooltip" title="Delete"><i class="fas fa-trash-alt" data-toggle="tooltip" title="Delete"></i></a> --}}
                     <form id='form-delete' class='form-delete' action="{{route('products.destroy',['id' => $product->id])}}" method="post">
                         @method('delete')
                         @csrf

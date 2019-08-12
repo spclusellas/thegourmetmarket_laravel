@@ -1,5 +1,5 @@
 @extends('layouts.app')
-@section('assets')
+{{-- @section('assets')
     <link rel="stylesheet" href="{{asset('css/products.css')}}">
     <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
@@ -34,7 +34,7 @@
         });
     }
     });
-</script>
+</script> --}}
 @endsection
 @section('content')
 <div id='product-container' class="container-fluid p-0">
@@ -47,13 +47,15 @@
                     </div>
                 </article>
                 <article class='container-fluid p-0 text-center'>
-                    <a href="{{route('users.edit', ['id' => $user->id])}}" class="btn btn-primary btn-sm btn-block"><i class="text-white material-icons">&#xE254;</i></a>
+                    <a href="{{route('users.edit', ['id' => $user->id])}}" class="btn btn-primary btn-sm btn-block"><i class="fas fa-edit" class="material-icons" data-toggle="tooltip" title="Edit"></i></a>
+                    {{-- Boton de Eliminar --}}
+                    {{-- <a href="{{route('users.destroy',['id' => $user->id])}}" id='delete-link' class="btn btn-danger btn-sm btn-block" data-toggle="tooltip" title="Delete"><i class="fas fa-trash-alt" data-toggle="tooltip" title="Delete"></i></a> --}}
                     <form id='form-delete' class='form-delete' action="{{route('users.destroy',['id' => $user->id])}}" method="post">
                         @method('delete')
                         @csrf
-                        <a href='#' id='delete-link' class="btn btn-danger btn-sm btn-block" data-toggle="tooltip" title="Delete"><i class="text-white material-icons">&#xE872;</i></a>
+                        <a href='#' id='delete-link' class="btn btn-danger btn-sm btn-block" data-toggle="tooltip" title="Delete"><i class="fas fa-trash-alt" data-toggle="tooltip" title="Delete"></i></a>
                     </form>
-                    <a href="{{route('users.index')}}" class="edit btn btn-info btn-sm btn-block"><i class="text-white material-icons">arrow_back</i></a>
+                    <a href="{{route('users.index')}}" class="edit btn btn-info btn-sm btn-block"><i class="fas fa-arrow-alt-circle-left"></i></a>
                 </article>
             </section>
             <section class="col-md-9 col-sm-6">
@@ -64,18 +66,18 @@
                         <dt>Email</dt>
                         <dd><p>{{$user->email}}</p></dd>
                     </dl>
-                    <dl class="item-property">
+                    {{-- <dl class="item-property">
                             <dt>Genero</dt>
                             <dd><p>@if ($user->genre == null) Ninguno @else {{$user->genre}}   @endif</p></dd>
-                    </dl>
-                    <dl class="item-property">
+                    </dl> --}}
+                    {{-- <dl class="item-property">
                         <dt>Provincia</dt>
                         <dd><p>{{$user->provincia}}</p></dd>
                     </dl>
                     <dl class="item-property">
                         <dt>Municipio</dt>
                         <dd><p>{{$user->municipio}}</p></dd>
-                    </dl>
+                    </dl> --}}
                     <dl class="param param-feature">
                         <dt>Fecha de creacion</dt>
                         <dd>{{$user->created_at}}</dd>
@@ -90,4 +92,4 @@
         </article>
     </section>
 </div>
-@endsection  
+@endsection

@@ -8,31 +8,32 @@
                     <h2 class="ml-5">Administración de <strong>Productos</strong></h2>
                 </article>
                 <article class="col-sm-6 text-right pr-4">
-                    <a href="{{route('products.create')}}" class="btn btn-success mr-5"><i class="fas fa-plus"></i><span>Agregar Producto</span></a>
+                    <a href="{{route('products.create')}}" class="btn btn-success mr-5"><i class="fas fa-plus"></i><span> Agregar Producto</span></a>
                 </article>
             </section>
         </article>
         <table id='table' class="table table-striped table-hover  w-100">
             <thead class='w-100'>
                 <tr>
-                    <th>Nombre</th>
-                    <th>Categoría</th>
-                    <th>Precio</th>
-                    <th>Cantidad</th>
-                    <th>Fecha Modificación</th>
-                    <th>Acciones</th>
+                    <th class="text-center">Nombre</th>
+                    <th class="text-center">Categoría</th>
+                    <th class="text-center">Precio</th>
+                    <th class="text-center">Cantidad</th>
+                    <th class="text-center">Fecha Modificación</th>
+                    <th class="text-center">Acciones</th>
                 </tr>
             </thead>
             <tbody class='w-100'>
                 @foreach ($products as $product)
                 <tr>
-                    <td><a href="{{route('products.show',['id' => $product->id])}}">{{$product->name}}</a></td>
-                    <td>{{$product->category['name']}}</td>
-                    <td>$ {{$product->price}}</td>
-                    <td>{{$product->stock}}</td>
-                    <td>{{$product->updated_at}}</td>
-                    <td class=d-flex>
+                    <td class="text-center"><a href="{{route('products.show',['id' => $product->id])}}">{{$product->name}}</a></td>
+                    <td class="text-center">{{$product->category['name']}}</td>
+                    <td class="text-center">$ {{$product->price}}</td>
+                    <td class="text-center">{{$product->stock}}</td>
+                    <td class="text-center">{{$product->updated_at}}</td>
+                    <td class="d-flex text-center">
                         <a href="{{route('products.edit', ['id' => $product->id])}}" class="edit"><i class="fas fa-edit" class="material-icons" data-toggle="tooltip" title="Edit"></i></a>
+                        {{-- <a href="{{route('users.destroy',['id' => $product->id])}}" id='delete-link' class="btn btn-danger btn-sm btn-block" data-toggle="tooltip" title="Delete"><i class="fas fa-trash-alt" data-toggle="tooltip" title="Delete"></i></a> --}}
                         <form id='{{$product->id}}' class='form-delete' action="{{route('products.destroy',['id' => $product->id])}}" method="post">
                             @method('DELETE')
                             @csrf

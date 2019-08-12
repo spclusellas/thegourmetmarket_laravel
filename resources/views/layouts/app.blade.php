@@ -141,13 +141,13 @@
                                 <a class="nav-link" href="#">Novedades <span class="sr-only">(current)</span></a>
                             </li>
                             <li class="nav-item active m-0">
-                                <a class="nav-link" href="#">Hogar<span class="sr-only">(current)</span></a>
+                                <a class="nav-link" href="/hogar">Hogar<span class="sr-only">(current)</span></a>
                             </li>
                             <li class="nav-item active m-0">
-                                <a class="nav-link" href="#">Organicos <span class="sr-only">(current)</span></a>
+                                <a class="nav-link" href="/organicos">Organicos <span class="sr-only">(current)</span></a>
                             </li>
                             <li class="nav-item active m-0">
-                                <a class="nav-link" href="#">Bebidas <span class="sr-only">(current)</span></a>
+                                <a class="nav-link" href="/vinos">Vinos <span class="sr-only">(current)</span></a>
                             </li>
                             <li class="nav-item active m-0">
                                 <a class="nav-link" href="#">Sale <span class="sr-only">(current)</span></a>

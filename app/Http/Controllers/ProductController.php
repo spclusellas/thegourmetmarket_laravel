@@ -13,6 +13,32 @@ class ProductController extends Controller
     $products = Product::orderBy('name')->get();
     return view('products.indexProducto', compact('products','categories'));
   }
+
+    public function indexOrganico()
+    {
+        $products = Product::where('category_id','=','1')->paginate(8);
+        return view('products.indexProducto')->with("products", $products);
+    }
+    public function indexVinos()
+    {
+        $products = Product::where('category_id','=','2')->paginate(8);
+        return view('products.indexProducto')->with("products", $products);
+    }
+    public function indexAlacena()
+    {
+        $products = Product::where('category_id','=','3')->paginate(8);
+        return view('products.indexProducto')->with("products", $products);
+      }
+    public function indexSnacks()
+    {
+        $products = Product::where('category_id','=','4')->paginate(8);
+        return view('products.indexProducto')->with("products", $products);
+    }
+    public function indexHogar()
+    {
+        $products = Product::where('category_id','=','5')->paginate(8);
+        return view('products.indexProducto')->with("products", $products);
+    }
   // public function show($id) {
   //     return view('products.show', ['product' => Product::findOrFail($id)]);
   // }

@@ -35,6 +35,13 @@ Route::get('/home', 'HomeController@index')->name('home');
 
 
 Route::get('/productos', 'ProductController@index');
+Route::get('/organicos', 'ProductController@indexOrganico');
+Route::get('/hogar', 'ProductController@indexHogar');
+Route::get('/snacks', 'ProductController@indexSnacks');
+Route::get('/vinos', 'ProductController@indexVinos');
+
+
+
 // Aquí es donde muestros los productos
 Route::get('/show/{id}', 'ProductController@show')->name('front.product.show');
 //Ruta creada para buscar los productos

@@ -26,7 +26,7 @@
 
 <body>
     <header>
-        <div id="app">
+        {{-- <div id="app">
           <div class="navbar navbar-expand-md bg-dark ">
           <section class="container-fluid">
               <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="{{ __('Toggle navigation') }}">
@@ -72,7 +72,6 @@
                               </a>
 
                               <section class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
-                                  {{-- <img src={{asset(Auth::user()->avatar)}} class="avatar"> --}}
                                   <a class="dropdown-item" href="{{ route('profile') }}">Perfil</a>
                                   <a class="dropdown-item" href="{{ route('logout') }}"
                                       onclick="event.preventDefault();
@@ -91,7 +90,7 @@
               </article>
           </section>
         </div>
-        </div>
+        </div> --}}
         {{-- Arranca mi barra de navegacion --}}
         <div class="row bg-dark">
 
@@ -121,9 +120,24 @@
 
             <div class="barraiconos col-4 col-lg-3">
                 <ul class="iconos">
-                    <li class="iconitos"><a href="/signin"><i class="fas fa-user-alt fa-1x"></i></a></li>
+                  @guest
+                    <li class="iconitos"><a  href="{{ route('login') }}"><i class="fas fa-user-circle"></i></a></li>
                     <li class="iconitos"><a href="#"><i class="fas fa-shopping-basket fa-1x"></i></a></li>
                     <li class="iconitos"><a href="/faq"><i class="fas fa-question fa-1x"></i></a></li>
+                  @else
+                    <li class="iconitos"><a href="/signin"><img class="fotoperfil" src="{{(Auth::user()->avatar)}}" alt=""> </a></li>
+                    <li class="cerrarsesion" data-toggle="tooltip" data-placement="bottom" title="Cerrar Sesión"><a class="" href="{{ route('logout') }}"
+                        onclick="event.preventDefault();
+                                        document.getElementById('logout-form').submit();">
+                        <i class="fas fa-user-slash"></i></i>
+                    </a>
+
+                    <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+                        @csrf
+                    </form></li>
+                    <li class="iconitos"><a href="#"><i class="fas fa-shopping-basket fa-1x"></i></a></li>
+                    <li class="iconitos"><a href="/faq"><i class="fas fa-question fa-1x"></i></a></li>
+                  @endguest
                 </ul>
             </div>
 

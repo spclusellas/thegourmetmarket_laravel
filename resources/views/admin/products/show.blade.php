@@ -43,8 +43,7 @@
             <section class="col-md-3 col-sm-6">
                 <article class="product-grid mb-4 mt-4">
                     <div class="product-image">
-                        <img class="pic-1" src="{{asset($product->imageLoc)}}">
-                        <img class="pic-2" src="{{asset($product->imageLoc2)}}">
+                        <img class="pic-1" src="{{"/storage/$product->image"}}" alt="{{$product->image}}">
                     </div>
                 </article>
                 <article class='container-fluid p-0 text-center'>

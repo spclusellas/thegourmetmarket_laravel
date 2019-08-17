@@ -252,6 +252,12 @@ LEVEL 4. SETTINGS
   flex-wrap: wrap;
   justify-content: space-around;
 }
+.fotoperfil{
+  width: 50px;
+  border: 2px black solid;
+  border-radius: 50%;
+  height: 50px;
+}
 .iconitos{
   font-size: 1.8rem;
   margin: 0;
@@ -261,6 +267,16 @@ LEVEL 4. SETTINGS
 }
 .iconitos a:hover{
   color: #673ab7;
+}
+.cerrarsesion{
+  font-size: 1.8rem;
+  margin: 0;
+}
+.cerrarsesion a{
+  color: #e64040;
+}
+.cerrarsesion a:hover{
+  color: #b30000;
 }
 
 .menudesp li a:hover{

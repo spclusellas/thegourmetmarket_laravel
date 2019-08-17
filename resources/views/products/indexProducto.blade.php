@@ -21,7 +21,7 @@
               <tbody class='w-100'>
                   @foreach ($products as $product)
                   <tr>
-                      <td class="text-center"><a href="{{route('products.show',['id' => $product->id])}}">{{$product->name}}</a></td>
+                      <td class="text-center"><a href="{{route('front.product.show',['id' => $product->id])}}">{{$product->name}}</a></td>
                       <td class="text-center">{{$product->category['name']}}</td>
                       <td class="text-center">$ {{$product->price}}</td>
                       <td class="text-center">{{$product->stock}}</td>
@@ -31,7 +31,7 @@
               </tbody>
           </table>
           <div class='container-fluid d-flex justify-content-center'>
-        {{$products->links()}}
+        {{-- {{$products->links()}} --}}
     </div>
       </section>
   </div>

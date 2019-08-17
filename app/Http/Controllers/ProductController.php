@@ -39,9 +39,11 @@ class ProductController extends Controller
         $products = Product::where('category_id','=','5')->paginate(8);
         return view('products.indexProducto')->with("products", $products);
     }
-  // public function show($id) {
-  //     return view('products.show', ['product' => Product::findOrFail($id)]);
-  // }
+    public function show($id)
+    {
+      $product = Product::find($id);
+      return view('products.detalleProducto',compact('product'));
+    }
   // public function search(Request $request)
   // {
   //     $input = $request->input('busqueda');

@@ -53,6 +53,7 @@ class RegisterController extends Controller
             'surname'=> ['required', 'string', 'max:255'],
             'email' => ['required', 'string', 'email', 'max:255', 'unique:users'],
             'password' => ['required', 'string', 'min:8', 'confirmed'],
+            'avatar' => ['file'],
         ]);
     }
 
@@ -64,11 +65,21 @@ class RegisterController extends Controller
      */
     protected function create(array $data)
     {
+      $path = $data['avatar'];
+
+
+        if (!is_null($path)) {
+            $filename = $path->store('public/avatars');
+            $dbFilename = explode('/',$filename);
+            $filename = 'storage/avatars/'.$dbFilename[2];
+        }
+
         return User::create([
             'name' => $data['name'],
             'surname' => $data['surname'],
             'email' => $data['email'],
             'password' => Hash::make($data['password']),
+            'avatar' => $filename,
         ]);
     }
 }

@@ -18,11 +18,8 @@
             <article class="row">
                 <section class="col-md-3 col-sm-6">
                     <article class='container-fluid p-0 mb-4'>
-                        <label for="imageLoc">Selecciona una imagen</label>
-                        <input type="file" value="imageLoc" class='form-control-file' name="imageLoc" id="imageLoc">
-                        <hr>
-                        <label for="imageLoc2">Selecciona otra imagen</label>
-                        <input type="file" value="imageLoc2" class='form-control-file' name="imageLoc2" id="imageLoc2">
+                        <label for="image">Selecciona una imagen</label>
+                        <input type="file" value="image" class='form-control-file' name="image" id="image">
                     </article>
                 </section>
                 <section class="col-md-9 col-sm-6">

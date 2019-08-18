@@ -12,7 +12,7 @@ class ProductController extends Controller
 {
   public function index(){
     $categories = Category::all();
-    $products = Product::orderBy('name')->get();
+    $products = Product::orderBy('name')->paginate(8);
     return view('products.indexProducto', compact('products','categories'));
   }
 
@@ -41,6 +41,18 @@ class ProductController extends Controller
         $products = Product::where('category_id','=','5')->paginate(8);
         return view('products.indexProducto')->with("products", $products);
     }
+    public function indexSale()
+    {
+        $products = Product::where('discount','!=','1')->paginate(8);
+        return view('products.indexProducto')->with("products", $products);
+    }
+    public function indexNovedades()
+    {
+        $products = Product::orderBy('created_at', 'DESC')->paginate(8);
+        return view('products.indexProducto')->with("products", $products);
+    }
+
+
     public function show($id)
     {
       $product = Product::find($id);

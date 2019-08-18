@@ -86,7 +86,7 @@
 
             @else
             <div class='container mb-5 mt-5'>
-                <h2 class='text-center mb-5 mt-5'> HERMANO QUERIDO, AUN NO TIENE NADA EN EL CARRITO </h2>
+                <h2 class='text-center mb-5 mt-5'> TU CARRITO SE ENCUENTRA VACÍO <i class="fas fa-frown"></i> </h2>
             </div>
             @endif
 

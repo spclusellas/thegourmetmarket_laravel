@@ -125,13 +125,34 @@
                     <li class="iconitos"><a href="#"><i class="fas fa-shopping-basket fa-1x"></i></a></li>
                     <li class="iconitos"><a href="/faq"><i class="fas fa-question fa-1x"></i></a></li>
                   @else
-                    <li class="iconitos"><a href="/signin"><img class="fotoperfil" src="{{(Auth::user()->avatar)}}" alt=""> </a></li>
-                    <li class="cerrarsesion" data-toggle="tooltip" data-placement="bottom" title="Cerrar Sesión"><a class="" href="{{ route('logout') }}"
+                    @if (Auth::User()->role == 7)
+                    <li class="iconitos">
+                        <a id="navbarDropdown" class="nav-link dropdown-toggle text-light" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
+                        <img class="fotoperfil" src="{{(Auth::user()->avatar)}}" alt="">
+                      </a>
+
+                      <section class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
+                          <a class="dropdown-item text-dark" href="{{route('products.index')}}">{{ __('Productos') }}</a>
+                          <a class="dropdown-item text-dark" href="{{route('users.index')}}">{{ __('Usuarios') }}</a>
+                      </section>
+                    </li>
+                    <li class="cerrarsesion" data-toggle="tooltip" data-placement="bottom" title="Cerrar Sesión">
+                      <a class="" href="{{ route('logout') }}"
                         onclick="event.preventDefault();
                                         document.getElementById('logout-form').submit();">
                         <i class="fas fa-user-slash"></i></i>
                     </a>
-
+                  @elseif (Auth::User()->role == 1)
+                    <li class="iconitos">
+                      <img class="fotoperfil" src="{{(Auth::user()->avatar)}}" alt="">
+                    </li>
+                    <li class="cerrarsesion" data-toggle="tooltip" data-placement="bottom" title="Cerrar Sesión">
+                      <a class="" href="{{ route('logout') }}"
+                        onclick="event.preventDefault();
+                                        document.getElementById('logout-form').submit();">
+                        <i class="fas fa-user-slash"></i></i>
+                    </a>
+                  @endif
                     <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
                         @csrf
                     </form></li>
@@ -168,7 +189,7 @@
                                 <a class="nav-link" href="/vinos">Vinos <span class="sr-only">(current)</span></a>
                             </li>
                             <li class="nav-item active m-0">
-                                <a class="nav-link" href="#">Sale <span class="sr-only">(current)</span></a>
+                                <a class="nav-link" href="/sale">Sale <span class="sr-only">(current)</span></a>
                             </li>
                         </ul>
                     </div>

@@ -19,7 +19,7 @@ Route::get('/', 'PagesController@main')->name('home');
 
 Route::get('/faqs', 'PagesController@faqs')->name('faqs');
 
-Route::get('/', 'HomeController@index');
+// Route::get('/', 'HomeController@index');
 Route::get('/faq', 'FAQController@index');
 
 // Estas dor rutas se crearon antes de hacer el auth
@@ -28,7 +28,7 @@ Route::get('/faq', 'FAQController@index');
 
 Auth::routes();
 
-Route::get('/home', 'HomeController@index')->name('home');
+Route::get('/home', 'HomeController@main')->name('home');
 
 
 
@@ -39,6 +39,8 @@ Route::get('/organicos', 'ProductController@indexOrganico');
 Route::get('/hogar', 'ProductController@indexHogar');
 Route::get('/snacks', 'ProductController@indexSnacks');
 Route::get('/vinos', 'ProductController@indexVinos');
+Route::get('/sale', 'ProductController@indexSale');
+Route::get('/novedades', 'ProductController@indexNovedades');
 
 // Aquí es donde controlo lo del carrito de compras, agregar productos
 Route::get('cart/add/{id}', "CartController@add")->name('cart.add')->middleware('auth');
@@ -80,3 +82,5 @@ Route::group(['prefix' => 'auth'], function () {
 
     Route::get('/edit/{id}', 'UserUpdate@edit')->middleware('auth')->name('edit');
     Route::put('/update/{id}', 'UserUpdate@update')->name('update');
+
+    Route::get('/destroy/{id}', 'AdminProductController@destroy')->middleware('auth')->name('product.destroy');

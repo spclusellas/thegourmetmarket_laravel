@@ -3,13 +3,19 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Product;
+use App\Category;
+use App\Cart;
+use Session;
 
 class PagesController extends Controller
 {
     public function main()
     {
-      return view('home');
-    }
+      $categories = Category::all();
+      $products = Product::all();
+      return view('home', compact('products','categories'));
+      }
 
     public function faqs()
       {

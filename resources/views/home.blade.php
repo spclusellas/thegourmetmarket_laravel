@@ -30,12 +30,12 @@
       <section class="seg-seccion-gnrl my-3 mx-auto">
         <div class="row m-0">
           <article class="seg-item sale col-5 col-lg-3 my-1 p-0 mx-auto">
-            <a href="#">
+            <a href="/sale">
             <img class="imgboton" src="images/bannersale.jpg" alt="Sale">
             </a>
           </article>
           <article class="seg-item novedades col-5 col-lg-3 my-1 p-0 mx-auto">
-            <a href="#">
+            <a href="/novedades">
             <img class="imgboton" src="images/bannernov.jpg" alt="SALE">
             </a>
           </article>
@@ -45,7 +45,7 @@
             </a>
           </article>
           <article class="seg-item organico col-5 col-lg-3 my-1 p-0 mx-auto">
-            <a href="#">
+            <a href="/organicos">
             <img class="imgboton" src="images/bannerorganico.jpg" alt="organicos">
             </a>
           </article>
@@ -64,9 +64,34 @@
       <!-- ARRANCA CUARTA SECCION -->
 
       <section class="productosmasvendidos"> <!-- productos mas vendidos-->
-          <h2 class="text-center mb-3 font-weight-bold">NUESTRA SELECCIÓN PARA VOS</h2>
+          <h2 class="text-center mb-3 font-weight-bold">NUESTROS ULTIMOS LANZAMIENTOS</h2>
           <i class="fas fa-cart-arrow-down d-block text-center mb-3 text-dark"></i>
-          <div class="row">
+          <div class="row w-90 d-flex">
+            @foreach ($products as $product)
+            <div class="card col-11 col-md-5 col-lg-3 mb-2" style="width: 100%;">
+                <img src={{"/storage/$product->image"}} class="card-img-top" alt="...">
+                <div class="card-body p-0">
+                    <h5 class="card-title mt-2">{{$product->name}}</h5>
+                </div>
+                <ul class="list-group list-group-flush">
+                    <li class="list-group-item"><b>Categoria: </b>{{$product->category['name']}}</li>
+                    @if ($product->discount != 0)
+                    <li class="list-group-item"><b>Descuento: </b>{{($product->discount) * 100}} %
+                    </li>
+                    @else
+                    <li class="list-group-item">Sin descuento
+                    </li>
+                    @endif
+                    <li class="list-group-item preciofinal">Precio: $ {{$product->final_price}}</li>
+                </ul>
+                <div class="card-body">
+                    <a href="{{route('cart.add',['id' => $product->id])}}"><button type="button" class="btn btn-outline-success"><i class="fas fa-plus"></i> <i class="fas fa-shopping-basket"></i></button></a>
+                    <a href={{route('front.product.show',['id' => $product->id])}} class="card-link"><button type="button" class="btn btn-outline-info">Ver <i class="fas fa-plus"></i></button></a>
+                </div>
+            </div>
+            @endforeach
+          </div>
+          {{-- <div class="row">
             <article class="contendor-prod1 col-5 col-md-5 col-lg-3 d-flex flex-column justify-content-center">
               <img src="images/prod1.png" class="producto" alt="...">
               <h5 class="card-title">Vino</h5>
@@ -87,7 +112,7 @@
               <h5 class="card-title">Tomates</h5>
               <a class="bg-dark text-light p-2" href="#">Comprar</a>
             </article>
-        </div>
+        </div> --}}
       </section>
 
 @endsection

@@ -44,8 +44,9 @@ public function store(Request $request)
       "description"  => 'required',
       "category_id" => 'required',
       "price" => 'required|integer',
+      "discount" => 'required',
       "stock" => "required|integer",
-      "image" => "image|",
+      "image" => "required|image",
   ]);
 
   $product = new Product();
@@ -53,12 +54,21 @@ public function store(Request $request)
   $path = $request->file('image')->store('public');
   $fileName = basename($path);
 
+  if ($request["discount"] != 1) {
+    $descuento = $request["discount"] * $request["price"];
+    $precioFinal =$request["price"] - $descuento;
+  } else {
+    $precioFinal = $request["price"];
+  }
+
   $product->image = $fileName;
   $product->name = $request["name"];
   $product->description = $request["description"];
   $product->category_id = $request["category_id"];
   $product->price = $request["price"];
+  $product->discount = $request["discount"];
   $product->stock = $request["stock"];
+  $product->final_price = $precioFinal;
 
   $product->save();
 
@@ -108,35 +118,32 @@ public function update(Request $request, $id)
       "description"  => 'required',
       "category_id" => 'required',
       "price" => 'required|integer',
+      "discount" => 'required',
       "stock" => "required|integer",
-      // "imageLoc" => "image|dimensions:min_width=340,max_width=366,min_height=440,max_height=466",
-      // "imageLoc2" => "image|dimensions:min_width=340,max_width=366,min_height=440,max_height=466",
+      "image" => "image|",
   ]);
-
   $product = Product::find($id);
 
+  // $path = $request->file('image')->store('public');
+  // $fileName = basename($path);
+
+  if ($request["discount"] != 1) {
+    $descuento = $request->input("discount") * $request->input("price");
+    $precioFinal =$request->input("price") - $descuento;
+  } else {
+    $precioFinal = $request->input("price");
+  }
+
+  // $product->image = $request->input($fileName);
   $product->name = $request->input("name");
   $product->description = $request->input("description");
   $product->category_id = $request->input("category_id");
   $product->price = $request->input("price");
+  $product->discount = $request->input("discount");
   $product->stock = $request->input("stock");
+  $product->final_price = $precioFinal;
 
-  // $path = $request->file('imageLoc');
-  // $path2 = $request->file('imageLoc2');
-  //
-  // $extension = $request->file('imageLoc')->extension();
-  // $extension2 = $request->file('imageLoc2')->extension();
-  //
-  //
-  // if (!is_null($path)) {
-  //     $path->storeAs('public/products', '1'.$request->user()->id.'.'.$extension);
-  //     $product->imageLoc = 'storage/products/1'.$request->user()->id.'.'.$extension2;
-  // }
-  // if (!is_null($path2)) {
-  //     $path2->storeAs('public/products', '2'.$request->user()->id);
-  //     $product->imageLoc2 = 'storage/products/2'.$request->user()->id;
-  // }
-
+  $path = $request->file('image');
 
   $product->save();
 

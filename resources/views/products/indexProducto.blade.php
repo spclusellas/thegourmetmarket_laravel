@@ -1,38 +1,44 @@
 @extends('layouts.app')
 @section('content')
-  <div class="container-fluid p-0 mt-4">
-      <section class="table-wrapper m-0">
-          <article class="table-title mb-3">
-              <section class="row">
-                  <article class="col-sm-6 ml-4">
-                      <h2>Todos nuestros PRODUCTOS</h2>
-                  </article>
-              </section>
-          </article>
-          <table id='table' class="table table-striped table-hover  w-100">
-              <thead class='w-100'>
-                  <tr>
-                      <th class="text-center">Nombre</th>
-                      <th class="text-center">Categoría</th>
-                      <th class="text-center">Precio</th>
-                      <th class="text-center">Cantidad</th>
-                  </tr>
-              </thead>
-              <tbody class='w-100'>
-                  @foreach ($products as $product)
-                  <tr>
-                      <td class="text-center"><a href="{{route('front.product.show',['id' => $product->id])}}">{{$product->name}}</a></td>
-                      <td class="text-center">{{$product->category['name']}}</td>
-                      <td class="text-center">$ {{$product->price}}</td>
-                      <td class="text-center">{{$product->stock}}</td>
-                      </td>
-                  </tr>
-                  @endforeach
-              </tbody>
-          </table>
-          <div class='container-fluid d-flex justify-content-center'>
-        {{-- {{$products->links()}} --}}
-    </div>
-      </section>
-  </div>
-  @endsection
+<div class="container p-0 mt-4">
+    <section class="table-wrapper m-0">
+        <article class="table-title mb-3">
+            <section class="row">
+                <article class="col-sm-6 ml-4">
+                    <h2>Todos nuestros PRODUCTOS</h2>
+                </article>
+            </section>
+        </article>
+        <section class="d-flex col-12">
+            <div class="row w-100">
+                @foreach ($products as $product)
+                <div class="card col-11 col-md-5 col-lg-3 mb-2" style="width: 100%;">
+                    <img src={{"/storage/$product->image"}} class="card-img-top" alt="...">
+                    <div class="card-body p-0">
+                        <h5 class="card-title mt-2">{{$product->name}}</h5>
+                    </div>
+                    <ul class="list-group list-group-flush">
+                        <li class="list-group-item"><b>Categoria: </b>{{$product->category['name']}}</li>
+                        @if ($product->discount != 0)
+                        <li class="list-group-item"><b>Descuento: </b>{{($product->discount) * 100}} %
+                        </li>
+                        @else
+                        <li class="list-group-item">Sin descuento
+                        </li>
+                        @endif
+                        <li class="list-group-item preciofinal">Precio: $ {{$product->final_price}}</li>
+                    </ul>
+                    <div class="card-body">
+                        <a href="{{route('cart.add',['id' => $product->id])}}"><button type="button" class="btn btn-outline-success"><i class="fas fa-plus"></i> <i class="fas fa-shopping-basket"></i></button></a>
+                        <a href={{route('front.product.show',['id' => $product->id])}} class="card-link"><button type="button" class="btn btn-outline-info">Ver <i class="fas fa-plus"></i></button></a>
+                    </div>
+                </div>
+                @endforeach
+                {{-- {{$products->links()}} --}}
+            </div>
+        </section>
+</div>
+<div class="paginacion m-0">
+  {{$products->links()}}
+</div>
+@endsection

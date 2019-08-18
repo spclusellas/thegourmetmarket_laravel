@@ -33,7 +33,7 @@ class AdminUserController extends Controller
    */
   public function edit($id)
   {
-      $genres = ['Hombre','Mujer','Otro'];
+      // $genres = ['Hombre','Mujer','Otro'];
       $user = User::find($id);
       return view('admin.users.edit',compact('user','genres'));
   }
@@ -50,14 +50,14 @@ class AdminUserController extends Controller
 
       $this->validate($request, [
           "name" => 'required',
-          "genre" => 'required',
-          "avatar" => "image|dimensions:min_width=580,max_width=610,min_height=390,max_height=410",
+          // "genre" => 'required',
+          "avatar" => "image",
       ]);
 
       $user = User::find($id);
 
       $user->name = $request->input("name");
-      $user->genre = $request->input("genre");
+      // $user->genre = $request->input("genre");
 
 
       $path = $request->file('avatar');

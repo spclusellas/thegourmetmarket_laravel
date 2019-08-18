@@ -18,7 +18,9 @@
                     <th class="text-center">Nombre</th>
                     <th class="text-center">Categoría</th>
                     <th class="text-center">Precio</th>
+                    <th class="text-center">Descuento</th>
                     <th class="text-center">Cantidad</th>
+                    <th class="text-center">Precio Final</th>
                     <th class="text-center">Fecha Modificación</th>
                     <th class="text-center">Acciones</th>
                 </tr>
@@ -29,16 +31,16 @@
                     <td class="text-center"><a href="{{route('products.show',['id' => $product->id])}}">{{$product->name}}</a></td>
                     <td class="text-center">{{$product->category['name']}}</td>
                     <td class="text-center">$ {{$product->price}}</td>
+                    <th class="text-center"> {{($product->discount) * 100}} %</th>
                     <td class="text-center">{{$product->stock}}</td>
+                    <th class="text-center">$ {{$product->final_price}}</th>
                     <td class="text-center">{{$product->updated_at}}</td>
                     <td class="d-flex text-center">
-                        <a href="{{route('products.edit', ['id' => $product->id])}}" class="edit"><i class="fas fa-edit" class="material-icons" data-toggle="tooltip" title="Edit"></i></a>
-                        {{-- <a href="{{route('users.destroy',['id' => $product->id])}}" id='delete-link' class="btn btn-danger btn-sm btn-block" data-toggle="tooltip" title="Delete"><i class="fas fa-trash-alt" data-toggle="tooltip" title="Delete"></i></a> --}}
-                        <form id='{{$product->id}}' class='form-delete' action="{{route('products.destroy',['id' => $product->id])}}" method="post">
-                            @method('DELETE')
-                            @csrf
-                            <a id='delete-link-{{$product->id}}' href="#" class="delete"><i class="fas fa-trash-alt" data-toggle="tooltip" title="Delete"></i></a>
-                        </form>
+                        <a href="{{route('products.edit', ['id' => $product->id])}}" class="edit"><i class="fas fa-edit text-warning" class="material-icons" data-toggle="tooltip" title="Edit"></i></a>
+
+
+          							<a id='delete-link-{{$product->id}}' href="{{route('product.destroy',['id' => $product->id])}}" class="delete"><i class="fas fa-trash-alt text-danger"></i></a>
+
                     </td>
                 </tr>
                 @endforeach

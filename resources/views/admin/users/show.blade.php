@@ -35,7 +35,7 @@
     }
     });
 </script> --}}
-@endsection
+{{-- @endsection --}}
 @section('content')
 <div id='product-container' class="container-fluid p-0">
     <section class="container pt-3 pb-3">
@@ -43,7 +43,7 @@
             <section class="col-md-3 col-sm-6">
                 <article class="product-grid mb-4 mt-4">
                     <div class="product-image">
-                        <img class="pic-1" src="{{asset($user->avatar)}}">
+                        <img class="pic-1 w-100" src="{{asset($user->avatar)}}">
                     </div>
                 </article>
                 <article class='container-fluid p-0 text-center'>
@@ -66,18 +66,6 @@
                         <dt>Email</dt>
                         <dd><p>{{$user->email}}</p></dd>
                     </dl>
-                    {{-- <dl class="item-property">
-                            <dt>Genero</dt>
-                            <dd><p>@if ($user->genre == null) Ninguno @else {{$user->genre}}   @endif</p></dd>
-                    </dl> --}}
-                    {{-- <dl class="item-property">
-                        <dt>Provincia</dt>
-                        <dd><p>{{$user->provincia}}</p></dd>
-                    </dl>
-                    <dl class="item-property">
-                        <dt>Municipio</dt>
-                        <dd><p>{{$user->municipio}}</p></dd>
-                    </dl> --}}
                     <dl class="param param-feature">
                         <dt>Fecha de creacion</dt>
                         <dd>{{$user->created_at}}</dd>

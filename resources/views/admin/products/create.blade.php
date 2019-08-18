@@ -48,6 +48,17 @@
                             <dd><input type="number" class='form-control' name="price" id="price" value=""></dd>
                         </dl>  <!-- item-property-hor .// -->
                         <dl class="param param-feature">
+                            <dt>Descuento</dt>
+                            <dd>
+                              <select class="" name="discount">
+                                <option value=1>Nada</option>
+                                <option value=0.10>10%</option>
+                                <option value=0.25>25%</option>
+                                <option value=0.50>50%</option>
+                              </select>
+                            </dd>
+                        </dl>  <!-- item-property-hor .// -->
+                        <dl class="param param-feature">
                             <dt>Cantidad</dt>
                             <dd><input type="number" class='form-control' name="stock" id="price" value=""></dd>
                         </dl>  <!-- item-property-hor .// -->

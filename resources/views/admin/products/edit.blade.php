@@ -9,16 +9,12 @@
                 <section class="col-md-3 col-sm-6">
                     <article class="product-grid mb-4 mt-4">
                         <section class="product-image">
-                            <img class="pic-1" src="{{asset($product->imageLoc)}}">
-                            <img class="pic-2" src="{{asset($product->imageLoc2)}}">
+                            <img class="pic-1" src="{{$product->image}}">
                         </section>
                     </article>
                     <article class='container-fluid p-0 mb-4'>
-                        <label for="imageLoc">Imagen </label>
-                        <input type="file" value="imageLoc" class='form-control-file' name="imageLoc" id="imageLoc">
-                        <hr>
-                        <label for="imageLoc2">Imagen 2</label>
-                        <input type="file" value="imageLoc2" class='form-control-file' name="imageLoc2" id="imageLoc2">
+                        <label for="image">Selecciona una imagen</label>
+                        <input type="file" value="image" class='form-control-file' name="image" id="image">
                     </article>
                 </section>
                 <section class="col-md-9 col-sm-6">
@@ -45,6 +41,17 @@
                         <dl class="param param-feature">
                             <dt>Precio $</dt>
                             <dd><input type="number" class='form-control' name="price" id="price" value="{{$product->price}}"></dd>
+                        </dl>  <!-- item-property-hor .// -->
+                        <dl class="param param-feature">
+                            <dt>Descuento</dt>
+                            <dd>
+                              <select class="" name="discount">
+                                <option value=1>Nada</option>
+                                <option value=0.10>10%</option>
+                                <option value=0.25>25%</option>
+                                <option value=0.50>50%</option>
+                              </select>
+                            </dd>
                         </dl>  <!-- item-property-hor .// -->
                         <dl class="param param-feature">
                             <dt>Cantidad</dt>

@@ -66,24 +66,24 @@
                         <dd><p>{{$product->description}}</p></dd>
                     </dl>
                     <dl class="param param-feature">
-                        <dt>Género</dt>
-                        <dd>{{$product->genre['name']}}</dd>
-                    </dl>  <!-- item-property-hor .// -->
-                    <dl class="param param-feature">
                         <dt>Categoría</dt>
                         <dd>{{$product->category['name']}}</dd>
-                    </dl>  <!-- item-property-hor .// -->
-                    <dl class="param param-feature">
-                        <dt>Talle</dt>
-                        <dd>{{$product->size['size']}}</dd>
                     </dl>  <!-- item-property-hor .// -->
                     <dl class="param param-feature">
                         <dt>Precio</dt>
                         <dd>$ {{$product->price}}</dd>
                     </dl>  <!-- item-property-hor .// -->
                     <dl class="param param-feature">
+                        <dt>Descuento</dt>
+                        <dd>{{($product->discount) * 100}} %</dd>
+                    </dl>  <!-- item-property-hor .// -->
+                    <dl class="param param-feature">
                         <dt>Cantidad</dt>
                         <dd>{{$product->stock}}</dd>
+                    </dl>  <!-- item-property-hor .// -->
+                    <dl class="param param-feature">
+                        <dt>Precio Final</dt>
+                        <dd>$ {{$product->final_price}}</dd>
                     </dl>  <!-- item-property-hor .// -->
                     <hr>
                 </article>

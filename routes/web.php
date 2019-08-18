@@ -40,6 +40,20 @@ Route::get('/hogar', 'ProductController@indexHogar');
 Route::get('/snacks', 'ProductController@indexSnacks');
 Route::get('/vinos', 'ProductController@indexVinos');
 
+// Aquí es donde controlo lo del carrito de compras, agregar productos
+Route::get('cart/add/{id}', "CartController@add")->name('cart.add')->middleware('auth');
+//Carrito de compras elimino productos
+Route::get('cart/remove/{id}', "CartController@remove")->name('cart.remove')->middleware('auth');
+//Muestro los productos del carrito
+Route::get('/cart', 'CartController@show')->name('cart')->middleware('auth');
+// Route::get('/agregar-al-carrito/{id}', [
+//   'uses' => 'ProductController@addToCart',
+//   'as' => 'product.addToCart'
+// ]);
+// Route::get('/carrito', [
+//   'uses' => 'ProductController@getCarrito',
+//   'as' => 'product.carrito'
+// ]);
 
 
 // Aquí es donde muestros los productos
@@ -54,12 +68,7 @@ Route::group(['prefix' => 'admin', 'middleware' => ['auth','role']], function ()
 });
 //Aquí accedo al perfil del usuario para efctuar cualquier ajuste
 Route::get('/profile', "UserController@show")->name("profile")->middleware('auth');
-// Aquí es donde controlo lo del carrito de compras, agregar productos
-Route::get('cart/add/{id}', "CartController@add")->name('cart.add')->middleware('auth');
-//Carrito de compras elimino productos
-Route::get('cart/remove/{id}', "CartController@remove")->name('cart.remove')->middleware('auth');
-//Muestro los productos del carrito
-Route::get('/cart', 'CartController@show')->name('cart')->middleware('auth');
+
 Auth::routes();
 
 //Rutas para el acceso a administrador

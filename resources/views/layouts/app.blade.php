@@ -105,7 +105,7 @@
                 <div class="page">
                     <div class="page__demo">
                         <label class="field a-field a-field_a1 page__field">
-                            <input class="field__input a-field__input" placeholder="Vinos, organicos..." required>
+                            <input name="busqueda" class="field__input a-field__input" placeholder="Vinos, organicos..." required>
                             <span class="a-field__label-wrap">
                               <span class="a-field__label">Buscador...</span>
                             </span>
@@ -119,7 +119,7 @@
 
 
             <div class="barraiconos col-4 col-lg-3">
-                <ul class="iconos">
+                <ul class="iconos d-flex align-items-baseline">
                   @guest
                     <li class="iconitos"><a  href="{{ route('login') }}"><i class="fas fa-user-circle"></i></a></li>
                     <li class="iconitos"><a href="#"><i class="fas fa-shopping-basket fa-1x"></i></a></li>
@@ -135,7 +135,11 @@
                     <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
                         @csrf
                     </form></li>
-                    <li class="iconitos"><a href="#"><i class="fas fa-shopping-basket fa-1x"></i></a></li>
+                    <li class="iconitos">
+                        <a class='nav-link' href={{route('cart')}}>
+                        <i class="fas fa-shopping-basket fa-1x"></i>
+                    </a>
+                  </li>
                     <li class="iconitos"><a href="/faq"><i class="fas fa-question fa-1x"></i></a></li>
                   @endguest
                 </ul>

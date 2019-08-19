@@ -13,7 +13,7 @@ class PagesController extends Controller
     public function main()
     {
       $categories = Category::all();
-      $products = Product::all();
+      $products = Product::orderBy('created_at', 'DESC')->paginate(3);
       return view('home', compact('products','categories'));
       }
 

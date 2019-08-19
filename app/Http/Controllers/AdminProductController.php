@@ -46,7 +46,7 @@ public function store(Request $request)
       "price" => 'required|integer',
       "discount" => 'required',
       "stock" => "required|integer",
-      "image" => "required|image",
+      "image" => "required|image|dimensions:min_width=340,max_width=366,min_height=440,max_height=466",
   ]);
 
   $product = new Product();
@@ -120,7 +120,7 @@ public function update(Request $request, $id)
       "price" => 'required|integer',
       "discount" => 'required',
       "stock" => "required|integer",
-      "image" => "image|",
+      "image" => "image|dimensions:min_width=340,max_width=366,min_height=440,max_height=466",
   ]);
   $product = Product::find($id);
 

@@ -12,43 +12,43 @@ class ProductController extends Controller
 {
   public function index(){
     $categories = Category::all();
-    $products = Product::orderBy('name')->paginate(8);
+    $products = Product::orderBy('name')->paginate(6);
     return view('products.indexProducto', compact('products','categories'));
   }
 
     public function indexOrganico()
     {
-        $products = Product::where('category_id','=','1')->paginate(8);
+        $products = Product::where('category_id','=','1')->paginate(6);
         return view('products.indexProducto')->with("products", $products);
     }
     public function indexVinos()
     {
-        $products = Product::where('category_id','=','2')->paginate(8);
+        $products = Product::where('category_id','=','2')->paginate(6);
         return view('products.indexProducto')->with("products", $products);
     }
     public function indexAlacena()
     {
-        $products = Product::where('category_id','=','3')->paginate(8);
+        $products = Product::where('category_id','=','3')->paginate(6);
         return view('products.indexProducto')->with("products", $products);
       }
     public function indexSnacks()
     {
-        $products = Product::where('category_id','=','4')->paginate(8);
+        $products = Product::where('category_id','=','4')->paginate(6);
         return view('products.indexProducto')->with("products", $products);
     }
     public function indexHogar()
     {
-        $products = Product::where('category_id','=','5')->paginate(8);
+        $products = Product::where('category_id','=','5')->paginate(6);
         return view('products.indexProducto')->with("products", $products);
     }
     public function indexSale()
     {
-        $products = Product::where('discount','!=','1')->paginate(8);
+        $products = Product::where('discount','!=','1')->paginate(6);
         return view('products.indexProducto')->with("products", $products);
     }
     public function indexNovedades()
     {
-        $products = Product::orderBy('created_at', 'DESC')->paginate(8);
+        $products = Product::orderBy('created_at', 'DESC')->paginate(6);
         return view('products.indexProducto')->with("products", $products);
     }
 

@@ -8,14 +8,16 @@
               <section class="col-md-3 col-sm-6">
                   <article class="product-grid mb-4 mt-4">
                       <div class="product-image">
-                          <img class="pic-1" src="{{"/storage/$product->image"}}" alt="Este producto no tiene imagen">
+                          <img class="pic-1 w-100" src="{{"/storage/$product->image"}}" alt="Este producto no tiene imagen">
                       </div>
                   </article>
               </section>
               <section class="col-md-9 col-sm-6">
                   <article class="card-body p-2 pl-4">
-                      <h3 class="title mb-3">{{$product->name}}</h3>
-                      <a href="{{route('cart.add',['id' => $product->id])}}"><button type="button" class="btn btn-outline-success btn-lg"><i class="fas fa-plus"></i><i class="fas fa-shopping-basket"></i></button></a>
+                    <div class="">
+                      <h3 class="title mx-0 mb-3">{{$product->name}}</h3>
+                      <a href="{{route('cart.add',['id' => $product->id])}}"><button type="button" class="btn btn-outline-success btn-lg mx-0"><i class="fas fa-plus"></i><i class="fas fa-shopping-basket"></i></button></a>
+                    </div>
                       <hr>
                       <dl class="item-property">
                           <dt>Descripción</dt>

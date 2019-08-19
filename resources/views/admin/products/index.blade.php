@@ -31,7 +31,12 @@
                     <td class="text-center"><a href="{{route('products.show',['id' => $product->id])}}">{{$product->name}}</a></td>
                     <td class="text-center">{{$product->category['name']}}</td>
                     <td class="text-center">$ {{$product->price}}</td>
-                    <th class="text-center"> {{($product->discount) * 100}} %</th>
+                    @if ($product->discount != 1)
+                      <th class="text-center"> {{($product->discount) * 100}} %</th>
+                    @else
+                      <th class="text-center"> Sin descuento </th>
+                    @endif
+
                     <td class="text-center">{{$product->stock}}</td>
                     <th class="text-center">$ {{$product->final_price}}</th>
                     <td class="text-center">{{$product->updated_at}}</td>

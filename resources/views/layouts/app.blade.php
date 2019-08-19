@@ -25,7 +25,7 @@
 </head>
 
 <body>
-    <header>
+    <header class="sticky-top mb-1">
         {{-- <div id="app">
           <div class="navbar navbar-expand-md bg-dark ">
           <section class="container-fluid">

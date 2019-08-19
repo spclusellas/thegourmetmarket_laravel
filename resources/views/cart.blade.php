@@ -5,7 +5,6 @@
 <div class="container col-10">
     <section class="row">
         @if (session()->get('user.cart'))
-
         <article class="col-12">
             <br>
             <section class="table-responsive">
@@ -34,7 +33,7 @@
                                                                                                                                             @endphp
 
                             <tr>
-                                <td><img src="{{asset($product['image'])}}" width="10%"/> </td>
+                                <td><img src="" width="10%"/> </td>
                                 <td class="initialism">{{$product['name']}}</td>
                                 <td class="">{{$product['description']}}</td>
                                 <td >In stock</td>

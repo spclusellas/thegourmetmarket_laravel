@@ -9,7 +9,7 @@
         <div id="carouselExampleControls" class="carousel slide" data-ride="carousel">
           <div class="carousel-inner">
             <div class="carousel-item active">
-              <img src="images/carousel1.png" class="d-block w-100" alt="...">
+              <img src="images/bannerverdura2.jpg" class="d-block w-100" alt="...">
             </div>
             <div class="carousel-item">
               <img src="images/carousel2.jpg" class="d-block w-100" alt="...">
@@ -75,14 +75,16 @@
                 </div>
                 <ul class="list-group list-group-flush">
                     <li class="list-group-item"><b>Categoria: </b>{{$product->category['name']}}</li>
-                    @if ($product->discount != 0)
-                    <li class="list-group-item"><b>Descuento: </b>{{($product->discount) * 100}} %
-                    </li>
+                    @if ($product->discount != 1)
+                      <li class="list-group-item"><b>Descuento: </b>{{($product->discount) * 100}} %
+                      </li>
+                      <li class="list-group-item preciofinal">Precio: <br>
+                        <del class="text-danger">$ {{$product->price}}</del>     $ {{$product->final_price}}</li>
                     @else
-                    <li class="list-group-item">Sin descuento
-                    </li>
+                      <li class="list-group-item">Sin descuento
+                      </li>
+                      <li class="list-group-item preciofinal">Precio: <br> $ {{$product->final_price}}</li>
                     @endif
-                    <li class="list-group-item preciofinal">Precio: $ {{$product->final_price}}</li>
                 </ul>
                 <div class="card-body">
                     <a href="{{route('cart.add',['id' => $product->id])}}"><button type="button" class="btn btn-outline-success"><i class="fas fa-plus"></i> <i class="fas fa-shopping-basket"></i></button></a>

@@ -300,11 +300,16 @@ LEVEL 4. SETTINGS
 }
 
         /* TERCERA SECCION */
+.sobrenosotros{
+  background-image: url(../images/bannerverdura.jpg);
+  background-size: cover;
+}
 .fa-utensils{
   font-size: 1.5rem;
 }
 .sobrenosotros p{
-  font-size: 1.3em;
+  background-color:rgba(0,0,0,.8);
+  font-size: 1.1em;
 }
 
         /* CUARTA SECCION */

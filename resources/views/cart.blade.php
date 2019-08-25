@@ -13,11 +13,11 @@
 
                         <tr>
                             <th scope="col"> </th>
-                            <th scope="col">Product</th>
+                            <th scope="col">Producto</th>
                             <th scope="col">Descripcion </th>
                             <th scope="col">Available</th>
-                            <th scope="col" class="text-center">Quantity</th>
-                            <th scope="col" class="text-center">Price</th>
+                            <th scope="col" class="text-center">Cantidad</th>
+                            <th scope="col" class="text-center">Precio</th>
                             <th scope="col"></th>
                         </tr>
                     </thead>
@@ -74,10 +74,10 @@
         <section class="col mb-2">
             <article class="row">
                 <section class="col-sm-12  col-md-6">
-                <a href='' class="btn btn-block btn-light">Continue Shopping</a>
+                <a href='/productos' class="btn btn-block btn-light">Continuar Comprando</a>
                 </section>
                 <section class="col-sm-12 col-md-6 text-right">
-                    <button class="btn btn-lg btn-block btn-success text-uppercase">Checkout</button>
+                    <button class="btn btn-lg btn-block btn-success text-uppercase">COMPRAR</button>
                 </section>
             </article>
             <br>

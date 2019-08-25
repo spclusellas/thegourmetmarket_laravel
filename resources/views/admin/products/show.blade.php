@@ -43,18 +43,20 @@
             <section class="col-md-3 col-sm-6">
                 <article class="product-grid mb-4 mt-4">
                     <div class="product-image">
-                        <img class="pic-1" src="{{"/storage/$product->image"}}" alt="{{$product->image}}">
+                        <img class="pic-1 w-100" src="{{"/storage/$product->image"}}" alt="{{$product->image}}">
                     </div>
                 </article>
-                <article class='container-fluid p-0 text-center'>
-                    <a href="{{route('products.edit', ['id' => $product->id])}}" class="btn btn-primary btn-sm btn-block"><i class="fas fa-edit" class="material-icons" data-toggle="tooltip" title="Edit"></i></a>
-                    {{-- <a href="{{route('users.destroy',['id' => $product->id])}}" id='delete-link' class="btn btn-danger btn-sm btn-block" data-toggle="tooltip" title="Delete"><i class="fas fa-trash-alt" data-toggle="tooltip" title="Delete"></i></a> --}}
+
+                <article class='container-fluid p-0 text-center d-flex'>
+                    <a href="{{route('products.edit', ['id' => $product->id])}}" class="m-0"><button type="button" class="btn btn-outline-warning btn-lg mx-0"><i class="fas fa-edit" class="material-icons" data-toggle="tooltip" title="Edit"></i></button></a>
+
                     <form id='form-delete' class='form-delete' action="{{route('products.destroy',['id' => $product->id])}}" method="post">
                         @method('delete')
                         @csrf
-                        <a href='#' id='delete-link' class="btn btn-danger btn-sm btn-block" data-toggle="tooltip" title="Delete"><i class="fas fa-trash-alt" data-toggle="tooltip" title="Delete"></i></a>
+                        <a href='#' id='delete-link' class="btn btn-outline-danger btn-lg mx-0" data-toggle="tooltip" title="Delete"><i class="fas fa-trash-alt" data-toggle="tooltip" title="Delete"></i></a>
                     </form>
-                    <a href="{{route('products.index')}}" class="edit btn btn-info btn-sm btn-block"><i class="fas fa-arrow-alt-circle-left"></i></a>
+
+                    <a href="{{route('products.index')}}" class="edit btn btn-outline-primary btn-lg mx-0"><i class="fas fa-arrow-alt-circle-left"></i></a>
                 </article>
             </section>
             <section class="col-md-9 col-sm-6">
@@ -69,14 +71,21 @@
                         <dt>Categoría</dt>
                         <dd>{{$product->category['name']}}</dd>
                     </dl>  <!-- item-property-hor .// -->
-                    <dl class="param param-feature">
-                        <dt>Precio</dt>
-                        <dd>$ {{$product->price}}</dd>
-                    </dl>  <!-- item-property-hor .// -->
-                    <dl class="param param-feature">
-                        <dt>Descuento</dt>
-                        <dd>{{($product->discount) * 100}} %</dd>
-                    </dl>  <!-- item-property-hor .// -->
+                    @if ($product->discount != 1)
+                      <dl class="param param-feature">
+                          <dt>Descuento</dt>
+                          <dd>{{($product->discount) * 100}} %</dd>
+                      </dl>  <!-- item-property-hor .// -->
+                      <dl class="param param-feature">
+                          <dt>Precio Original</dt>
+                          <dd>$ {{$product->price}}</dd>
+                      </dl>  <!-- item-property-hor .// -->
+                    @else
+                      <dl class="param param-feature">
+                          <dt>Descuento</dt>
+                          <dd>Sin descuento</dd>
+                      </dl>  <!-- item-property-hor .// -->
+                      @endif
                     <dl class="param param-feature">
                         <dt>Cantidad</dt>
                         <dd>{{$product->stock}}</dd>

@@ -100,7 +100,7 @@
                 </a>
             </div>
 
-            <div class="buscador col-7 col-md-4 col-lg-5 mr-2">
+            <div class="buscador col-10 col-md-5 col-lg-5 mr-2">
               <form class="col-12" action={{route('product.search')}} method="get">
                 <div class="page">
                     <div class="page__demo">
@@ -118,8 +118,8 @@
             </div>
 
 
-            <div class="barraiconos col-4 col-lg-3">
-                <ul class="iconos d-flex align-items-baseline">
+            <div class="barraiconos col-11 col-md-5 col-lg-3">
+                <ul class="iconos d-flex align-items-baseline justify-content-around">
                   @guest
                     <li class="iconitos"><a  href="{{ route('login') }}"><i class="fas fa-user-circle"></i></a></li>
                     <li class="iconitos"><a href="#"><i class="fas fa-shopping-basket fa-1x"></i></a></li>
@@ -177,19 +177,19 @@
                                 <a class="nav-link" href="/productos">Productos<span class="sr-only">(current)</span></a>
                             </li>
                             <li class="nav-item active m-0">
-                                <a class="nav-link" href="#">Novedades <span class="sr-only">(current)</span></a>
+                                <a class="nav-link" href="/Novedades">Novedades <span class="sr-only">(current)</span></a>
                             </li>
                             <li class="nav-item active m-0">
-                                <a class="nav-link" href="/hogar">Hogar<span class="sr-only">(current)</span></a>
+                                <a class="nav-link" href="/Hogar">Hogar<span class="sr-only">(current)</span></a>
                             </li>
                             <li class="nav-item active m-0">
-                                <a class="nav-link" href="/organicos">Organicos <span class="sr-only">(current)</span></a>
+                                <a class="nav-link" href="/Organicos">Organicos <span class="sr-only">(current)</span></a>
                             </li>
                             <li class="nav-item active m-0">
-                                <a class="nav-link" href="/vinos">Vinos <span class="sr-only">(current)</span></a>
+                                <a class="nav-link" href="/Vinos">Vinos <span class="sr-only">(current)</span></a>
                             </li>
                             <li class="nav-item active m-0">
-                                <a class="nav-link" href="/sale">Sale <span class="sr-only">(current)</span></a>
+                                <a class="nav-link" href="/Sale">Sale <span class="sr-only">(current)</span></a>
                             </li>
                         </ul>
                     </div>

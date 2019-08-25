@@ -313,8 +313,10 @@ LEVEL 4. SETTINGS
 }
 
         /* CUARTA SECCION */
-
-.productosmasvendidos img{
+.productosmasvendidos{
+  width: 85%;
+}
+._imagenprod{
   width: 60%;
 }
 .fa-cart-arrow-down{
@@ -403,47 +405,9 @@ footer a:hover{
 }
                   /* REGISTER Y SIGN IN */
 
-.register{
-  border-top-style: none;
-  border-color: grey;
-  /* margin-top: 20px; */
-  text-align: center;
+._registrate{
+  border: 1px solid #b3b5b66e;
 }
-  .button {
-    display: inline-block;
-    border-radius: 4px;
-    background-color: #1ca9d8;
-    border: none;
-    color: #FFFFFF;
-    text-align: center;
-    font-size: 24px;
-    padding: 20px;
-    width: 200px;
-    transition: all 0.5s;
-    cursor: pointer;
-    margin: 5px;
-  }
-  .button span {
-    cursor: pointer;
-    display: inline-block;
-    position: relative;
-    transition: 0.5s;
-  }
-  .button span:after {
-    content: '\00bb';
-    position: absolute;
-    opacity: 0;
-    top: 0;
-    right: -20px;
-    transition: 0.5s;
-  }
-  .button:hover span {
-    padding-right: 25px;
-  }
-  .button:hover span:after {
-    opacity: 1;
-    right: 0;
-  }
 
           /* INDEX PRODUCTOS */
 .preciofinal{
@@ -462,6 +426,15 @@ footer a:hover{
 }
 .page-item{
   margin: 0;
+}
+._producto{
+  position: relative;
+}
+.cincuenta{
+  width: 30%;
+  position: absolute;
+  top: -5px;
+  right: -21px;
 }
 
 @media (min-width:768px){

@@ -1,7 +1,7 @@
 @extends('layouts.app')
 
 @section('content')
-<div class="container-fluid d-flex flex-sm-column flex-lg-row">
+<div class="container-fluid d-flex flex-column flex-lg-row">
     <div class="row justify-content-center mt-5 col-12 col-lg-8">
         <div class="col-10">
             <div class="card">
@@ -72,8 +72,8 @@
         </div>
     </div>
     <div class="row col-12 col-lg-4">
-      <div class="mt-5">
-        <h3 class="mt-5">¿Todavía no estas registrado?</h3>
+      <div class="_registrate mt-5 p-3">
+        <h3 class="mt-5 text-center">¿Todavía no estas registrado?</h3>
         <a href="{{ route('register') }}"> <button type="button" class="btn-outline-info btn-lg btn-block btn-outline-info mt-5 mb-sm-4">Registrate Acá</button> </a>
       </div>
     </div>

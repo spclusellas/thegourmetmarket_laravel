@@ -35,12 +35,14 @@ Route::get('/home', 'HomeController@main')->name('home');
 
 
 Route::get('/productos', 'ProductController@index');
-Route::get('/organicos', 'ProductController@indexOrganico');
-Route::get('/hogar', 'ProductController@indexHogar');
-Route::get('/snacks', 'ProductController@indexSnacks');
-Route::get('/vinos', 'ProductController@indexVinos');
-Route::get('/sale', 'ProductController@indexSale');
-Route::get('/novedades', 'ProductController@indexNovedades');
+Route::get('/Organicos', 'ProductController@indexOrganico');
+Route::get('/Hogar', 'ProductController@indexHogar');
+Route::get('/Snacks', 'ProductController@indexSnacks');
+Route::get('/Vinos', 'ProductController@indexVinos');
+Route::get('/Alacena', 'ProductController@indexAlacena');
+Route::get('/Otra', 'ProductController@indexOtra');
+Route::get('/Sale', 'ProductController@indexSale');
+Route::get('/Novedades', 'ProductController@indexNovedades');
 
 // Aquí es donde controlo lo del carrito de compras, agregar productos
 Route::get('cart/add/{id}', "CartController@add")->name('cart.add')->middleware('auth');

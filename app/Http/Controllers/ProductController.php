@@ -12,44 +12,66 @@ class ProductController extends Controller
 {
   public function index(){
     $categories = Category::all();
+    $categ = "";
     $products = Product::orderBy('name')->paginate(6);
-    return view('products.indexProducto', compact('products','categories'));
+    return view('products.indexProducto', compact('products','categories', 'categ'));
   }
 
     public function indexOrganico()
     {
+        $categories = Category::all();
+        $categ = 'Orgánicos';
         $products = Product::where('category_id','=','1')->paginate(6);
-        return view('products.indexProducto')->with("products", $products);
+        return view('products.indexProducto', compact('products','categories', 'categ'));
     }
     public function indexVinos()
     {
+        $categories = Category::all();
+        $categ = "Vinos";
         $products = Product::where('category_id','=','2')->paginate(6);
-        return view('products.indexProducto')->with("products", $products);
+        return view('products.indexProducto', compact('products','categories', 'categ'));
     }
     public function indexAlacena()
     {
+        $categories = Category::all();
+        $categ = "Alacena";
         $products = Product::where('category_id','=','3')->paginate(6);
-        return view('products.indexProducto')->with("products", $products);
+        return view('products.indexProducto', compact('products','categories', 'categ'));
       }
     public function indexSnacks()
     {
+        $categories = Category::all();
+        $categ = "Snacks";
         $products = Product::where('category_id','=','4')->paginate(6);
-        return view('products.indexProducto')->with("products", $products);
+        return view('products.indexProducto', compact('products','categories', 'categ'));
     }
     public function indexHogar()
     {
+        $categories = Category::all();
+        $categ = "Hogar";
         $products = Product::where('category_id','=','5')->paginate(6);
-        return view('products.indexProducto')->with("products", $products);
+        return view('products.indexProducto', compact('products','categories', 'categ'));
+    }
+    public function indexOtra()
+    {
+        $categories = Category::all();
+        $categ = "Otros";
+        $products = Product::where('category_id','=','6')->paginate(6);
+        return view('products.indexProducto', compact('products','categories', 'categ'));
     }
     public function indexSale()
     {
+        $categories = Category::all();
+        $categ = "Ofertas";
         $products = Product::where('discount','!=','1')->paginate(6);
-        return view('products.indexProducto')->with("products", $products);
+        return view('products.indexProducto', compact('products','categories', 'categ'));
     }
     public function indexNovedades()
     {
+        $categories = Category::all();
+        $categ = "Novedades";
         $products = Product::orderBy('created_at', 'DESC')->paginate(6);
-        return view('products.indexProducto')->with("products", $products);
+        return view('products.indexProducto', compact('products','categories', 'categ'));
     }
 
 

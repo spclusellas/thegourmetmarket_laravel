@@ -322,6 +322,9 @@ LEVEL 4. SETTINGS
 .fa-cart-arrow-down{
   font-size: 2rem;
 }
+.fa-piggy-bank{
+  font-size: 2rem;
+}
 .contendor-prod3{
   display: none;
 }
@@ -436,6 +439,16 @@ footer a:hover{
   top: -5px;
   right: -21px;
 }
+._imgproducto{
+  display: flex;
+  justify-content: center;
+    height: 200px;
+}
+._imgproducto img{
+    max-height: 200px;
+    width: 70%;
+}
+
 
 @media (min-width:768px){
   p{

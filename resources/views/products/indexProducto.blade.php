@@ -27,16 +27,18 @@
         <section class="d-flex col-12">
             <div class="row w-100 d-flex justify-content-around">
                 @foreach ($products as $product)
-                <div class="_producto card col-11 col-md-5 col-lg-3 mx-1 mb-3" style="width: 100%;">
+                <div class="_producto card col-6 col-md-5 col-lg-3 mx-1 mb-3" style="width: 100%;">
                   @if ($product->discount == 0.5)
                       <img class="cincuenta" src="/images/50-off.png" alt="">
                   @endif
+                  <div class="_imgproducto">
                     <img src={{"/storage/$product->image"}} class="card-img-top" alt="...">
+                  </div>
                     <div class="card-body p-0">
                         <h5 class="card-title mt-2">{{$product->name}}</h5>
                     </div>
                     <ul class="list-group list-group-flush">
-                        <li class="list-group-item"><b>Categoria: </b>{{$product->category['name']}}</li>
+                        {{-- <li class="list-group-item"><b>Categoria: </b>{{$product->category['name']}}</li> --}}
                         @if ($product->discount != 1)
                           <li class="list-group-item"><b>Descuento: </b>{{($product->discount) * 100}} %
                           </li>

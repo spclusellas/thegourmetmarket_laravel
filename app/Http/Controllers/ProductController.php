@@ -63,7 +63,7 @@ class ProductController extends Controller
     {
         $categories = Category::all();
         $categ = "Ofertas";
-        $products = Product::where('discount','!=','1')->paginate(6);
+        $products = Product::where('discount','!=','1')->orderBy('discount', 'DESC')->paginate(6);
         return view('products.indexProducto', compact('products','categories', 'categ'));
     }
     public function indexNovedades()

@@ -29,22 +29,22 @@
       <!-- ARRANCA SEGUNDA SECCION -->
       <section class="seg-seccion-gnrl my-3 mx-auto">
         <div class="row m-0">
-          <article class="seg-item sale col-10 col-lg-3 my-1 p-0 mx-auto">
+          <article class="seg-item sale col-10 col-md-5 col-lg-3 my-1 p-0 mx-auto">
             <a href="/Sale">
             <img class="imgboton" src="images/bannersale.jpg" alt="Sale">
             </a>
           </article>
-          <article class="seg-item novedades col-10 col-lg-3 my-1 p-0 mx-auto">
+          <article class="seg-item novedades col-10 col-md-5 col-lg-3 my-1 p-0 mx-auto">
             <a href="/Novedades">
             <img class="imgboton" src="images/bannernov.jpg" alt="SALE">
             </a>
           </article>
-          <article class="seg-item vendido col-10 col-lg-3 my-1 p-0 mx-auto">
+          <article class="seg-item vendido col-10 col-md-5 col-lg-3 my-1 p-0 mx-auto">
             <a href="#">
             <img class="imgboton" src="images/bannervend.jpg" alt="masvendido">
             </a>
           </article>
-          <article class="seg-item organico col-10 col-lg-3 my-1 p-0 mx-auto">
+          <article class="seg-item organico col-10 col-md-5 col-lg-3 my-1 p-0 mx-auto">
             <a href="/Organicos">
             <img class="imgboton" src="images/bannerorganico.jpg" alt="organicos">
             </a>
@@ -52,6 +52,37 @@
         </div>
       </section>
 
+      <section class="productosmasvendidos"> <!-- productos mas vendidos-->
+          <h2 class="text-center mb-3 font-weight-bold">¡NUESTRAS MEJORES OFERTAS!</h2>
+          <i class="fas fa-piggy-bank d-block text-center mb-3 text-dark"></i>
+
+          <div class="row w-90 d-flex justify-content-around">
+            @foreach ($productsoferta as $product)
+              <div class="_producto card col-6 col-md-5 col-lg-3 mx-1 mb-3 pt-2" style="width: 100%;">
+                @if ($product->discount == 0.5)
+                    <img class="cincuenta" src="/images/50-off.png" alt="">
+                @endif
+                <div class="_imgproducto">
+                  <img class="" src={{"/storage/$product->image"}} class="card-img-top" alt="...">
+                </div>
+                <div class="card-body p-0">
+                    <h5 class="card-title mt-2">{{$product->name}}</h5>
+                </div>
+                <ul class="list-group list-group-flush">
+                      <li class="list-group-item preciofinal">Precio: <br>
+                        <del class="text-danger">$ {{$product->price}}</del>     $ {{$product->final_price}}</li>
+                </ul>
+                <div class="card-body">
+                    <a href="{{route('cart.add',['id' => $product->id])}}"><button type="button" class="btn btn-outline-success"><i class="fas fa-plus"></i> <i class="fas fa-shopping-basket"></i></button></a>
+                    <a href={{route('front.product.show',['id' => $product->id])}} class="card-link"><button type="button" class="btn btn-outline-info">Ver <i class="fas fa-plus"></i></button></a>
+                </div>
+            </div>
+            @endforeach
+          </div>
+          <div class="">
+            <a href="/Sale"> <button type="button" class="btn btn-info btn-lg btn-block">VER MÁS OFERTAS</button> </a>
+          </div>
+          </section>
       <!-- ARRANCA TERCERA SECCION -->
 
       <section class="sobrenosotros bg-dark my-3 p-4">
@@ -69,11 +100,13 @@
 
           <div class="row w-90 d-flex justify-content-around">
             @foreach ($products as $product)
-              <div class="_producto card col-11 col-md-5 col-lg-3 mx-1 mb-3 pt-2" style="width: 100%;">
+              <div class="_producto card col-6 col-md-5 col-lg-3 mx-1 mb-3 pt-2" style="width: 100%;">
                 @if ($product->discount == 0.5)
                     <img class="cincuenta" src="/images/50-off.png" alt="">
                 @endif
-                <img class="_imagenprod" src={{"/storage/$product->image"}} class="card-img-top" alt="...">
+                <div class="_imgproducto">
+                  <img class="" src={{"/storage/$product->image"}} class="card-img-top" alt="...">
+                </div>
                 <div class="card-body p-0">
                     <h5 class="card-title mt-2">{{$product->name}}</h5>
                 </div>

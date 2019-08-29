@@ -23,7 +23,7 @@
                   </form>
             </section>
         </article>
-        
+
         <section class="d-flex col-12">
             <div class="row w-100 d-flex justify-content-around">
                 @foreach ($products as $product)
@@ -50,7 +50,7 @@
                           {{-- <li class="list-group-item preciofinal">Precio: $ {{$product->final_price}}</li> --}}
                     </ul>
                     <div class="card-body">
-                        <a href="{{route('cart.add',['id' => $product->id])}}"><button type="button" class="btn btn-outline-success"><i class="fas fa-plus"></i> <i class="fas fa-shopping-basket"></i></button></a>
+                        <a class="addCart" id="addCart" href="{{route('cart.add',['id' => $product->id])}}"><button type="button" class="btn btn-outline-success"><i class="fas fa-plus"></i> <i class="fas fa-shopping-basket"></i></button></a>
                         <a href={{route('front.product.show',['id' => $product->id])}} class="card-link"><button type="button" class="btn btn-outline-info">Ver <i class="fas fa-plus"></i></button></a>
                     </div>
                 </div>

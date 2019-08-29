@@ -4,7 +4,7 @@
   <div id='product-container' class="container-fluid p-0">
       <section class="container pt-3 mt-3 pb-3">
           <article class="row">
-              <section class="col-md-3 col-sm-6 border border-dark">
+              <section class="col-md-3 col-sm-6 border ">
                   <article class="product-grid mb-4 mt-4 d-flex flex-column justify-content-center">
                       <div class="product-image mb-4">
                           <img class="pic-1 w-100 " src="{{"/storage/$product->image"}}" alt="Este producto no tiene imagen">

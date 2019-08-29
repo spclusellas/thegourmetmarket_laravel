@@ -77,7 +77,47 @@
                 <a href='/productos' class="btn btn-block btn-light">Continuar Comprando</a>
                 </section>
                 <section class="col-sm-12 col-md-6 text-right">
-                    <button class="btn btn-lg btn-block btn-success text-uppercase">COMPRAR</button>
+                    <button class="btn btn-lg btn-block btn-success text-uppercase" data-toggle="modal" data-target="#exampleModalCenter">COMPRAR</button>
+                    <!-- Modal -->
+                    <div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+                      <div class="modal-dialog modal-dialog-centered" role="document">
+                        <div class="modal-content">
+                          <div class="modal-header">
+                            <h5 class="modal-title" id="exampleModalCenterTitle">Elige tu medio de pago</h5>
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                              <span aria-hidden="true">&times;</span>
+                            </button>
+                          </div>
+                          <div class="modal-body d-flex flex-column">
+                            <h6 class="text-center"> El total de tu compra es: <br>
+                              <strong>- $ {{$total}}</strong> -</h6>
+                            <form class="" action="" method="post">
+                              <div class="">
+                                <img src="/images/logomp.png" alt="mp" width="40">
+                                <input type="radio" name="pago" value="MP">
+                              </div>
+                              <div class="">
+                                <img src="/images/logovisa.png" alt="" width="40">
+                                <input type="radio" name="pago" value="V">
+                              </div>
+                              <div class="">
+                                <img src="/images/logomc.png" alt="" width="40">
+                                <input type="radio" name="pago" value="MC">
+                              </div>
+                              <div class="">
+                                <img src="/images/banklogo.png" alt="" width="40">
+                                <input type="radio" name="pago" value="TR">
+                              </div>
+
+                          </div>
+                          <div class="modal-footer">
+                            <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
+                            <button type="submit" class="btn btn-primary">Proceder al pago</button>
+                            </form>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
                 </section>
             </article>
             <br>

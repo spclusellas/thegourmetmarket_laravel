@@ -12,7 +12,7 @@ class ProductController extends Controller
 {
   public function index(){
     $categories = Category::all();
-    $categ = "";
+    $categ = "Todos";
     $products = Product::orderBy('name')->paginate(6);
     return view('products.indexProducto', compact('products','categories', 'categ'));
   }
@@ -74,18 +74,21 @@ class ProductController extends Controller
         return view('products.indexProducto', compact('products','categories', 'categ'));
     }
 
+    public function search(Request $request)
+    {
+        $categories = Category::all();
+        $categ = "";
+        $input = $request->input('busqueda');
+        $products = Product::where('name','LIKE','%'.$input.'%')->paginate(6);
+        return view('products.indexProducto', compact('products','categories', 'categ'));
+    }
 
     public function show($id)
     {
       $product = Product::find($id);
       return view('products.detalleProducto',compact('product'));
     }
-  public function search(Request $request)
-  {
-      $input = $request->input('busqueda');
-      $products = Product::where('name','LIKE','%'.$input.'%')->paginate(8);
-      return view('products.indexProducto')->with("products", $products);
-  }
+
   // public function addToCart($id){
   //   $product = Product::find($id);
   //   $carritoViejo = Session::has('cart') ? Session::get('cart') : null;

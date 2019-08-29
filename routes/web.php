@@ -30,10 +30,6 @@ Auth::routes();
 
 Route::get('/home', 'HomeController@main')->name('home');
 
-
-
-
-
 Route::get('/productos', 'ProductController@index');
 Route::get('/Organicos', 'ProductController@indexOrganico');
 Route::get('/Hogar', 'ProductController@indexHogar');

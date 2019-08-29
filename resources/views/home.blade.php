@@ -69,7 +69,7 @@
 
           <div class="row w-90 d-flex justify-content-around">
             @foreach ($products as $product)
-              <div class="_producto card col-11 col-md-5 col-lg-3 mx-1 mb-3" style="width: 100%;">
+              <div class="_producto card col-11 col-md-5 col-lg-3 mx-1 mb-3 pt-2" style="width: 100%;">
                 @if ($product->discount == 0.5)
                     <img class="cincuenta" src="/images/50-off.png" alt="">
                 @endif
